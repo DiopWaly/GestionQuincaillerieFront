@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div *ngIf="confirm == true ">
+            <div class="alert alert-success" role="alert" data-dismiss="alert">
+                Ajout effectue avec succes
+            </div>
+        </div>
+    </div>
+    <div class="container">           
+        <table class="table table-hover"> 
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>libelle</th>
+              <th>Code</th>
+              <th>Telephone</th>
+              <th>Email</th>
+              <th>Adresse</th>
+              <th>Ville</th>
+              <th>Region</th>
+              <th>Latitude</th>
+              <th>Logitude</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let quinc of quincailleries">
+              <td>{{quinc.id}}</td>
+              <td>{{quinc.libellequic}}</td>
+              <td>{{quinc.codequinc}}</td>
+              <td>{{quinc.tel}}</td>
+              <td>{{quinc.email}}</td>
+              <td>{{quinc.adresse}}</td>
+              <td>{{quinc.ville}}</td>
+              <td>{{quinc.region}}</td>
+              <td>{{quinc.lat}}</td>
+              <td>{{quinc.long}}</td>
+              <td>
+                <a class="btn btn-secondary" (click)="update(quinc)">Edit</a>
+                <a class="btn btn-danger" (click)="delete(quinc)">Remove</a>
+                <!-- <i class="material-icons">add</i> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" (click)="newquicaillerie()" >new quincaillerie</button>
+    </div>
+</body>
+</html>

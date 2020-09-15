@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form #f="ngForm" (ngSubmit)="edit(f.value)">
+    <div class="form-group">
+      <label for="typeoperation" class="col-form-label">Type Operation</label>
+      <input type="text" class="form-control" name="typeoperation" id="typeoperation" ngModel="{{typeOp.typeoperation}}" required="required"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+  </form>
+</body>
+</html>

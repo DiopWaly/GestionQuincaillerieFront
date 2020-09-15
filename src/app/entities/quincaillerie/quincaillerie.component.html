@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form #f="ngForm" (ngSubmit)="add(f.value)">
+    <div class="form-group">
+      <label for="libellequic" class="col-form-label">Libelle</label>
+      <input type="text" class="form-control" name="libellequic" id="libellequic" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="codequinc" class="col-form-label">Code Quincaillerie</label>
+      <input type="text" class="form-control" name="codequinc" id="codequinc" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="tel" class="col-form-label">Telephone</label>
+      <input type="text" class="form-control" name="tel" id="tel" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="email" class="col-form-label">Email</label>
+      <input type="email" class="form-control" name="email" id="email" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="adresse" class="col-form-label">Adresse</label>
+      <input type="text" class="form-control" name="adresse" id="adresse" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="ville" class="col-form-label">Ville</label>
+      <input type="text" class="form-control" name="ville" id="ville" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="region" class="col-form-label">Region</label>
+      <input type="text" class="form-control" name="region" id="region" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="lat" class="col-form-label">Lat</label>
+      <input type="text" class="form-control" name="lat" id="lat" ngModel required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="long" class="col-form-label">Long</label>
+      <input type="text" class="form-control" name="long" id="long" ngModel required="required"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+  </form>
+</body>
+</html>

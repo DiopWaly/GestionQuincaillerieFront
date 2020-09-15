@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <table class="table table-hover"> 
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Type Operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tp of typeOp">
+              <td>{{tp.id}}</td>
+              <td>{{tp.typeoperation}}</td>
+              <td>
+                <a class="btn btn-secondary" (click)="update(tp)">Edit</a>
+                <a class="btn btn-danger" (click)="delete(tp)">Remove</a>
+                <!-- <i class="material-icons">add</i> -->
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button type="button" class="btn btn-primary" (click)="newtypeoperation()" >new typeoperation</button>
+    </div>
+</body>
+</html>

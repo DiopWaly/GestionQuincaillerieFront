@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <form #f="ngForm" (ngSubmit)="edit(f.value)">
+    <div class="form-group">
+      <label for="prix" class="col-form-label">Prix</label>
+      <input type="number" class="form-control" name="prix" id="prix" ngModel="{{modifprix.prix}}" required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="remarque" class="col-form-label">Remarque</label>
+      <input type="text" class="form-control" name="remarque" id="remarque" ngModel="{{modifprix.remarque}}" required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="ancienprix" class="col-form-label">Ancien Prix</label>
+      <input type="number" class="form-control" name="ancienprix" id="ancienprix" ngModel="{{modifprix.ancienprix}}" required="required"/>
+    </div>
+    <div class="form-group">
+      <label for="article" class="col-form-label">Article</label>
+      <input type="number" class="form-control" name="article" id="article" ngModel="{{modifprix.article.id}}" required="required"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Valider</button>
+  </form>
+</body>
+</html>
