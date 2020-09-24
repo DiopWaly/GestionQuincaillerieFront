@@ -39,8 +39,10 @@ import { ListcommandeComponent } from './entities/list/listcommande/listcommande
 import { ListlignecommandeComponent } from './entities/list/listlignecommande/listlignecommande.component';
 import { ListgroupeComponent } from './entities/list/listgroupe/listgroupe.component';
 
+
+
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     ModifprixComponent,
       AccueilComponent,
@@ -78,6 +80,7 @@ import { ListgroupeComponent } from './entities/list/listgroupe/listgroupe.compo
       ListgroupeComponent
    ],
   imports: [
+
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

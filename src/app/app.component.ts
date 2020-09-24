@@ -22,7 +22,7 @@ export class AppComponent {
      "user"
   ];
   constructor(private router:Router){}
-  
+
   public routing(url : string){
       this.router.navigateByUrl(url);
   }
