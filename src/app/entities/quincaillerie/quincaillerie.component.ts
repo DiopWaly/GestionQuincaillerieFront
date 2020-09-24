@@ -23,7 +23,6 @@ export class QuincaillerieComponent implements OnInit {
           this.router.navigate(['listquincaillerie']);
         },err=>{
           console.log(err);
-          
         });
   }
 

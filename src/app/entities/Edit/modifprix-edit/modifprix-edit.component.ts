@@ -25,7 +25,7 @@ export class ModifprixEditComponent implements OnInit {
       },err=>{
         console.log(err);
         
-      })
+      });
   }
 
 }

@@ -24,8 +24,7 @@ export class TypeoperationComponent implements OnInit {
           
       },err=>{
         console.log(err);
-      })
+      });
   }
   
-
 }
