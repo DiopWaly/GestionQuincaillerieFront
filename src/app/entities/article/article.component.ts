@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { CrudService } from 'src/app/services/crud.service';
+import { CrudService } from './../../services/crud.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,19 +10,18 @@ import { Router } from '@angular/router';
 })
 export class ArticleComponent implements OnInit {
 
-  constructor(private crud : CrudService, private router : Router) { }
+  constructor(private crud : CrudService,private router : Router) { }
 
   ngOnInit(): void {
   }
-
   add(f){
+    console.log(f);
     this.crud.add("article/add",f)
-     .subscribe(data =>{
-        console.log(f);
-        this.router.navigate(['listarticle']);
-     },err=>{
-       console.log(err);
-     });
+        .subscribe(data=>{
+          console.log(data);
+          this.router.navigate(['listarticle']);
+        },err=>{
+          console.log(err);
+    });
   }
-
 }

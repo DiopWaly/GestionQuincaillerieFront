@@ -14,7 +14,7 @@ export class QuincaillerieComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
   add(f){
     console.log(f);
     this.crud.add("quincaillerie/add",f)

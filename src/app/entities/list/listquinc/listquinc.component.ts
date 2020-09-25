@@ -23,10 +23,10 @@ export class ListquincComponent implements OnInit {
       .subscribe(data=>{
         this.quincailleries = data;
         console.log(this.quincailleries);
-        
+
       },err=>{
         console.log(err);
-        
+
       });
   }
   update(quinc : any){
@@ -44,11 +44,8 @@ export class ListquincComponent implements OnInit {
         this.listequincaillerie();
       },err=>{
         console.log(err);
-      }); 
+      });
     }
-  }
-  newquicaillerie(){
-    this.router.navigate(["quincaillerie"]);
   }
 
 }

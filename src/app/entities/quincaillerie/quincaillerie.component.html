@@ -1,12 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form #f="ngForm" (ngSubmit)="add(f.value)">
+<div class="container">
+<div class="col-lg-10 col-lg-offset-1">
+    <div class="panel panel-primary" >
+        <div class="panel-heading"><h2> Formulaire d'une Quincaillerie</h2></div>
+        <div class="panel-body">
+    <form #f="ngForm" (ngSubmit)="add(f.value)">
     <div class="form-group">
       <label for="libellequic" class="col-form-label">Libelle</label>
       <input type="text" class="form-control" name="libellequic" id="libellequic" ngModel required="required"/>
@@ -36,14 +33,18 @@
       <input type="text" class="form-control" name="region" id="region" ngModel required="required"/>
     </div>
     <div class="form-group">
-      <label for="lat" class="col-form-label">Lat</label>
+      <label for="lat" class="col-form-label">Latitude</label>
       <input type="text" class="form-control" name="lat" id="lat" ngModel required="required"/>
     </div>
     <div class="form-group">
-      <label for="long" class="col-form-label">Long</label>
+      <label for="long" class="col-form-label">Longetude</label>
       <input type="text" class="form-control" name="long" id="long" ngModel required="required"/>
     </div>
-    <button type="submit" class="btn btn-primary">Valider</button>
+    <button type="submit" class="btn btn-dark">Valider</button>
   </form>
-</body>
-</html>
+    </div>
+  </div>
+</div>
+</div>
+
+

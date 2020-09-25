@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<div class="col-lg-10 col-lg-offset-1 spacer60" >
+  <div class="panel panel-primary" >
+      <div class="panel-heading"><h2> Liste des quincailleries</h2></div>
+      <div class="panel-body">
     <div class="container">
         <div *ngIf="confirm == true ">
             <div class="alert alert-success" role="alert" data-dismiss="alert">
@@ -13,8 +9,8 @@
             </div>
         </div>
     </div>
-    <div class="container">           
-        <table class="table table-hover"> 
+    <div class="container">
+        <table class="table table-hover">
           <thead>
             <tr>
               <th>Id</th>
@@ -26,7 +22,11 @@
               <th>Ville</th>
               <th>Region</th>
               <th>Latitude</th>
-              <th>Logitude</th>
+              <th>Longitude</th>
+              <th>Modification</th>
+              <th>Suppression</th>
+
+
             </tr>
           </thead>
           <tbody>
@@ -49,7 +49,7 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary" (click)="newquicaillerie()" >new quincaillerie</button>
     </div>
-</body>
-</html>
+  </div>
+</div>
+</div>

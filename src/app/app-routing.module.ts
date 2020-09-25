@@ -38,7 +38,7 @@ import { UserEditComponent } from './entities/Edit/user-edit/user-edit.component
 
 const routes: Routes = [
   {
-    path:"", component: AccueilComponent
+    path:"", component: ArticleComponent
   },
   {
     path:"modifprix", component: ModifprixComponent
@@ -139,6 +139,7 @@ const routes: Routes = [
   {
     path:"edituser", component: UserEditComponent
   },
+
 ];
 
 @NgModule({
