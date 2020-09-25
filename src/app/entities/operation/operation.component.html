@@ -1,1 +1,29 @@
-<p>operation works!</p>
+<div class="container">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary" >
+          <div class="panel-heading"><h2> Formulaire d'une Opération</h2></div>
+          <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <div class="form-group">
+        <label for="typeoperation" class="col-form-label">Type d'opération</label>
+        <select class="form-control">
+          <option value="" selected>--choisir type d'opération--</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="client" class="col-form-label">Client</label>
+        <input type="text" class="form-control" name="client" id="client" ngModel required="required"/>
+      </div>
+      <div class="form-group">
+        <label for="lignecommande" class="col-form-label">Ligne de commande</label>
+        <input type="text" class="form-control" name="lignecommande" id="lignecommande" ngModel required="required"/>
+      </div>
+
+      <button type="submit" class="btn btn-dark">Valider</button>
+    </form>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
