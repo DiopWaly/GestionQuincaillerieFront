@@ -1,1 +1,33 @@
-<p>operation works!</p>
+<div class="container">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary" >
+          <div class="panel-heading"><h2>Operation Opération</h2></div>
+          <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <div class="form-group">
+        <label for="typeoperation" class="col-form-label">Type d'opération</label>
+        <select class="form-control" name="typeoperation" id="typeoperation" ngModel>
+          <option value="" selected>--choisir type d'opération--</option>
+          <option *ngFor="let typeoperation of typeoperations"  value="{{typeoperation.id}}">{{typeoperation.typeoperation}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label for="client" class="col-form-label">Client</label>
+          <select class="form-control" name="client" id="client" ngModel>
+              <option value="" selected>--choisir client--</option>
+              <option *ngFor="let client of clients"  value="{{client.id}}">{{client.prenom}} {{client.nom}}</option>
+          </select>
+        </div>
+      <div class="form-group">
+        <label for="lignecommande" class="col-form-label">Ligne de commande</label>
+        <select class="form-control" name="lignecommande" id="lignecommande" ngModel>
+          <option value="" selected>--choisir article--</option>
+          <option *ngFor="let lignecommande of lignecommandes"  value="{{lignecommande.id}}">{{lignecommande.unite}}</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-dark">Valider</button>
+    </form>
+      </div>
+    </div>
+  </div>
+  </div>

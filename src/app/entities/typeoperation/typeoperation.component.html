@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <form #f="ngForm" (ngSubmit)="add(f.value)">
-    <div class="form-group">
-      <label for="typeoperation" class="col-form-label">Type Operation</label>
-      <input type="text" class="form-control" name="typeoperation" id="typeoperation" ngModel required="required"/>
+<div class="container">
+  <div class="col-lg-10 col-lg-offset-1">
+      <div class="panel panel-primary" >
+          <div class="panel-heading"><h2> Formulaire d'un type d'opération</h2></div>
+          <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <div class="form-group">
+        <label for="typeoperation" class="col-form-label">Typeoperation</label>
+        <input type="text" class="form-control" name="typeoperation" id="typeoperation" ngModel required="required"/>
+      </div>
+      <button type="submit" class="btn btn-dark">Valider</button>
+    </form>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Valider</button>
-  </form>
-</body>
-</html>
+  </div>
+  </div>
+
+

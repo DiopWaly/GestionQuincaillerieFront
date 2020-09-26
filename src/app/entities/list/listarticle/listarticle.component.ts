@@ -18,7 +18,7 @@ export class ListarticleComponent implements OnInit {
   }
 
   listarticle(){
-    this.crud.get("article/all")
+    this.crud.get("art/all")
       .subscribe(data=>{
         this.articles = data;
         console.log(this.articles);
@@ -31,7 +31,7 @@ export class ListarticleComponent implements OnInit {
   }
 
   delete(article : any){
-    this.crud.delete("article/delete/"+article.id)
+    this.crud.delete("art/delete/"+article.id)
       .subscribe(data=>{
         console.log(data);
         this.listarticle();

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-commande-edit',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CommandeEditComponent implements OnInit {
 
-  constructor() { }
+  public commandeEdit;
+  constructor(private crud : CrudService, private router : Router) { }
 
   ngOnInit(): void {
+    this.commandeEdit = this.crud.getQuincaillerieServ();
+  }
+
+  edit(f){
+    this.crud.update('commande/update/'+this.commandeEdit.id,f)
+      .subscribe(data=>{
+        console.log(data);
+        this.router.navigate(['listcommande']);
+      });
   }
 
 }

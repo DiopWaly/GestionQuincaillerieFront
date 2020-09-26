@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-listclient',
@@ -7,9 +9,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListclientComponent implements OnInit {
 
-  constructor() { }
+  public clients;
+  constructor(private crud :CrudService, private router : Router) { }
 
   ngOnInit(): void {
+    this.listclient();
+  }
+
+  listclient(){
+    this.crud.get("client/all")
+      .subscribe(data=>{
+        this.clients = data;
+      },err=>{
+        console.log(err);
+      });
+  }
+  update(client : any){
+    console.log(client);
+    this.crud.setQuincaillerieServ(client);
+    this.router.navigate(['editclient']);
+  }
+  delete(client : any){
+    this.crud.delete("client/delete/"+client.id)
+      .subscribe(data=>{
+        console.log(data);
+        this.listclient();
+      },err=>{
+        console.log(err);
+        
+      })
   }
 
 }

@@ -1,1 +1,58 @@
-<p>client-edit works!</p>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary" >
+            <div class="panel-heading"><h2> Modifier client</h2></div>
+            <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="edit(f.value)">
+        <div class="form-group">
+          <label for="typeclient" class="col-form-label">Type client</label>
+          <input type="text" class="form-control" name="typeclient" id="typeclient" ngModel = "{{clientEdit.typeclient}}"/>
+        </div>
+        <div class="form-group">
+          <label for="prenom" class="col-form-label">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="prenom" ngModel = "{{clientEdit.prenom}}"/>
+        </div>
+        <div class="form-group">
+          <label for="nom" class="col-form-label">Nom</label>
+          <input type="text" class="form-control" name="nom" id="nom" ngModel = "{{clientEdit.nom}}"/>
+        </div>
+        <div class="form-group">
+          <label for="adresse" class="col-form-label">Adresse</label>
+          <input type="text" class="form-control" name="adresse" id="adresse" ngModel = "{{clientEdit.adresse}}"/>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" ngModel = "{{clientEdit.email}}"/>
+        </div>
+        <div class="form-group">
+          <label for="tel" class="col-form-label">Telephone</label>
+          <input type="text" class="form-control" name="tel" id="tel" ngModel = "{{clientEdit.tel}}"/>
+        </div>
+        <div class="form-group">
+          <label for="acompte" class="col-form-label">Acompte</label>
+          <input type="number" class="form-control" name="acompte" id="acompte" ngModel = "{{clientEdit.acompte}}"/>
+        </div>
+        <div class="form-group">
+          <label for="profession" class="col-form-label">Profession</label>
+          <input type="text" class="form-control" name="profession" id="profession" ngModel = "{{clientEdit.profession}}"/>
+        </div>
+        <div class="form-group">
+          <label for="solde" class="col-form-label">Solde</label>
+          <input type="number" class="form-control" name="solde" id="solde" ngModel = "{{clientEdit.solde}}"/>
+        </div>
+        <div class="form-group">
+          <label for="quincaillerie" class="col-form-label">User</label>
+          <select class="form-control" name="user" id="user" ngModel>
+            <option value="" selected> = "{{clientEdit.user.user}}"</option>
+            <option *ngFor="let user of users"  value="{{user.id}}">{{user.user}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Valider</button>
+      </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  
+  
+  

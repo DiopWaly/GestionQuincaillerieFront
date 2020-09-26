@@ -1,1 +1,38 @@
-<p>user-edit works!</p>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary" >
+            <div class="panel-heading"><h2>Modification user</h2></div>
+            <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="edit(f.value)">
+        <div class="form-group">
+          <label for="user" class="col-form-label">User</label>
+          <input type="text" class="form-control" name="user" id="user" ngModel="{{userEdit.user}}"/>
+        </div>
+        <div class="form-group">
+          <label for="email" class="col-form-label">Email</label>
+          <input type="email" class="form-control" name="email" id="email" ngModel="{{userEdit.email}}"/>
+        </div>
+        <div class="form-group">
+          <label for="tel" class="col-form-label">Telephone</label>
+          <input type="text" class="form-control" name="tel" id="tel" ngModel="{{userEdit.tel}}"/>
+        </div>
+        <div class="form-group">
+          <label for="quincaillerie" class="col-form-label">Quincaillerie</label>
+          <select class="form-control" name="quincaillerie" id="quincaillerie">
+            <option value="{{userEdit.quincaillerie.id}}" selected>{{userEdit.quincaillerie.libellequic}}</option>
+            <option *ngFor="let quincaillerie of quincailleries"  value="{{quincaillerie.id}}">{{quincaillerie.libellequic}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="groupe" class="col-form-label">Groupe</label>
+          <select class="form-control" name="groupe" id="groupe">
+            <option value="{{userEdit.groupe.id}}" selected>{{userEdit.groupe.libellegroupe}}</option>
+            <option *ngFor="let groupe of groupes"  value="{{groupe.id}}">{{groupe.libellegroupe}}</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-dark">Valider</button>
+      </form>
+        </div>
+      </div>
+    </div>
+    </div>  

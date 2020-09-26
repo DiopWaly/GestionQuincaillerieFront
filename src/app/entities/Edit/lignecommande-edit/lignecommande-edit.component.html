@@ -1,1 +1,39 @@
-<p>lignecommande-edit works!</p>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary" >
+            <div class="panel-heading"><h2> Modification de ligne de commande</h2></div>
+            <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="edit(f.value)">
+        <div class="form-group">
+          <label for="pu" class="col-form-label">Prix Unitaire</label>
+          <input type="pu" class="form-control" name="pu" id="pu" ngModel="{{lignecomEdit.pu}}"/>
+        </div>
+        <div class="form-group">
+          <label for="qte" class="col-form-label">Quantité</label>
+          <input type="text" class="form-control" name="qte" id="qte" ngModel="{{lignecomEdit.qte}}"/>
+        </div>
+        <div class="form-group">
+          <label for="unite" class="col-form-label">Unité</label>
+          <input type="text" class="form-control" name="unite" id="unite" ngModel="{{lignecomEdit.unite}}"/>
+        </div>
+        <div class="form-group">
+          <label for="commande" class="col-form-label">Commande</label>
+          <select class="form-control"  name="commande" id="commande" ngModel>
+            <option value="{{lignecomEdit.commande.id}}" selected>{{lignecomEdit.commande.numfacture}}</option>
+            <option *ngFor="let commande of commandes"  value="{{commande.id}}">{{commande.numfacture}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="article" class="col-form-label">Article</label>
+          <select class="form-control"  name="article" id="article" ngModel>
+            <option value="{{lignecomEdit.article.id}}" selected>{{lignecomEdit.article.libelle}}</option>
+            <option *ngFor="let article of articles"  value="{{article.id}}">{{article.libelle}}</option>
+          </select>
+        </div>
+  
+        <button type="submit" class="btn btn-dark">Valider</button>
+      </form>
+        </div>
+      </div>
+    </div>
+    </div>  

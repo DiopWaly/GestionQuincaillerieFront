@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 export class ModifprixEditComponent implements OnInit {
 
   public modifprix : any;
+  public articles;
   constructor(private crud : CrudService, private router : Router) { }
 
   ngOnInit(): void {
     this.modifprix = this.crud.getQuincaillerieServ();
+    this.recuper();
   }
 
   edit(f){
@@ -22,6 +24,15 @@ export class ModifprixEditComponent implements OnInit {
       .subscribe(data=>{
         console.log(data);
         this.router.navigate(['listmodifprix']);
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  recuper(){
+    this.crud.get("art/all")
+      .subscribe(data=>{
+        this.articles = data;
       },err=>{
         console.log(err);
         

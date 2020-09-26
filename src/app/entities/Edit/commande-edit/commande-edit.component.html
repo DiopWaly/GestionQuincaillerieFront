@@ -1,1 +1,33 @@
-<p>commande-edit works!</p>
+<div class="container">
+    <div class="col-lg-10 col-lg-offset-1">
+        <div class="panel panel-primary" >
+            <div class="panel-heading"><h2> Modifiction commande</h2></div>
+            <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="edit(f.value)">
+        <div class="form-group">
+          <label for="datecommande" class="col-form-label">Date de commande</label>
+          <input type="datetime" class="form-control" name="datecommande" id="datecommande" ngModel = "{{commandeEdit.datecommande}}"/>
+        </div>
+        <div class="form-group">
+          <label for="designation" class="col-form-label">Designation</label>
+          <input type="text" class="form-control" name="designation" id="designation" ngModel = "{{commandeEdit.designation}}"/>
+        </div>
+        <div class="form-group">
+          <label for="montant" class="col-form-label">Montant</label>
+          <input type="number" class="form-control" name="montant" id="montant" ngModel = "{{commandeEdit.montant}}"/>
+        </div>
+        <div class="form-group">
+          <label for="numfacture" class="col-form-label">Numéro de facture</label>
+          <input type="text" class="form-control" name="numfacture" id="numfacture" ngModel = "{{commandeEdit.numfacture}}"/>
+        </div>
+        <div class="form-group">
+          <label for="description" class="col-form-label">Description</label>
+          <input type="text" class="form-control" name="description" id="description" ngModel = "{{commandeEdit.description}}"/>
+        </div>
+  
+        <button type="submit" class="btn btn-dark">Valider</button>
+      </form>
+        </div>
+      </div>
+    </div>
+    </div>  

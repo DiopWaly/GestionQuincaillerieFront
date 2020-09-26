@@ -21,14 +21,11 @@
     </div>
     <div class="form-group">
       <label for="article" class="col-form-label">Article</label>
-      <input type="number" class="form-control" name="article" id="article" ngModel required="required"/>
-    </div>
-    <!-- <div class="form-group">
-      <label for="article" class="col-form-label" *ngFor="let article of articles">Article</label>
-      <select class="form-control" name="article" ngModel id="article">
-        <option>1</option>
+      <select class="form-control" name="article" id="article" ngModel>
+        <option value="" selected>--choisir article--</option>
+        <option *ngFor="let article of articles"  value="{{article.id}}">{{article.libelle}}</option>
       </select>
-    </div> -->
+    </div>
     <button type="submit" class="btn btn-primary">Valider</button>
   </form>
 </body>
