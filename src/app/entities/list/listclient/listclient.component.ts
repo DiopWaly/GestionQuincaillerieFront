@@ -1,6 +1,6 @@
+import { CrudService } from './../../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { CrudService } from 'src/app/services/crud.service';
 
 @Component({
   selector: 'app-listclient',

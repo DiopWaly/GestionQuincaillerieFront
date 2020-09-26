@@ -1,1 +1,79 @@
-<p>listuser works!</p>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h2>Liste des utilisateurs</h2>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Liste</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header-pills" ></div>
+        <div class="card-body">      
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Quincaillerie</th>
+                <th>Groupe</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.libellequic}}</td>
+                <td>{{user.codeuser}}</td>
+                <td>{{user.tel}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.adresse}}</td>
+                <td>{{user.ville}}</td>
+                <td>{{user.region}}</td>
+                <td>{{user.lat}}</td>
+                <td>{{user.long}}</td>
+                <td><a class="btn btn-primary " (click)="update(user)">
+                  <i class="fas fa-pencil-alt">
+                  </i>
+                  Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(user)">
+                  <i class="fas fa-trash"></i>
+                  Delete
+                  </a><a class="btn btn-success">clonage</a> </td>
+                
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Id</th>
+                <th>User</th>
+                <th>Email</th>
+                <th>Telephone</th>
+                <th>Quincaillerie</th>
+                <th>Groupe</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
