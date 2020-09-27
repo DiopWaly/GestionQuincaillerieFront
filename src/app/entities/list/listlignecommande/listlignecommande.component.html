@@ -1,1 +1,79 @@
-<p>listlignecommande works!</p>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h2>Liste des lignes de commande</h2>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Liste</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header-pills" ></div>
+        <div class="card-body">      
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th>Unité</th>
+                <th>Commande</th>
+                <th>Article</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let lc of lignecommandes">
+                <td>{{lc.id}}</td>
+                <td>{{lc.libellequic}}</td>
+                <td>{{lc.codelc}}</td>
+                <td>{{lc.tel}}</td>
+                <td>{{lc.email}}</td>
+                <td>{{lc.adresse}}</td>
+                <td>{{lc.ville}}</td>
+                <td>{{lc.region}}</td>
+                <td>{{lc.lat}}</td>
+                <td>{{lc.long}}</td>
+                <td><a class="btn btn-primary " (click)="update(lc)">
+                  <i class="fas fa-pencil-alt">
+                  </i>
+                  Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(lc)">
+                  <i class="fas fa-trash"></i>
+                  Delete
+                  </a><a class="btn btn-success">clonage</a> </td>
+                
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Id</th>
+                <th>Prix unitaire</th>
+                <th>Quantité</th>
+                <th>Unité</th>
+                <th>Commande</th>
+                <th>Article</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+

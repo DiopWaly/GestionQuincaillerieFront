@@ -95,7 +95,7 @@ const routes: Routes = [
     path:"listmodifprix", component: ListmodifprixComponent
   },
   {
-    path:"listopreation", component: ListoperationComponent
+    path:"listoperation", component: ListoperationComponent
   },
   {
     path:"listquincaillerie", component: ListquincComponent

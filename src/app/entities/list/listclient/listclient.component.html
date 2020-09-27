@@ -1,1 +1,93 @@
-<p>listclient works!</p>
+<section class="content-header">
+  <div class="container-fluid">
+    <div class="row mb-2">
+      <div class="col-sm-6">
+        <h2>Liste des Clients</h2>
+      </div>
+      <div class="col-sm-6">
+        <ol class="breadcrumb float-sm-right">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active">Liste</li>
+        </ol>
+      </div>
+    </div>
+  </div><!-- /.container-fluid -->
+</section>
+<!-- Main content -->
+<section class="content">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header-pills" ></div>
+        <div class="card-body">      
+          <table id="example1" class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Type de client</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Acompte</th>
+                <th>Photo</th>
+                <th>Profession</th>
+                <th>Solde</th>
+                <th>User</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let client of clients">
+                <td>{{client.id}}</td>
+                <td>{{client.typeclient}}</td>
+                <td>{{client.prenom}}</td>
+                <td>{{client.nom}}</td>
+                <td>{{client.adresse}}</td>
+                <td>{{client.email}}</td>
+                <td>{{client.tel}}</td>
+                <td>{{client.acompte}}</td>
+                <td>{{client.photo}}</td>
+                <td>{{client.profession}}</td>
+                <td>{{client.solde}}</td>
+                <td>{{client.user}}</td>
+                <td><a class="btn btn-primary " (click)="update(client)">
+                  <i class="fas fa-pencil-alt">
+                  </i>
+                  Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(client)">
+                  <i class="fas fa-trash"></i>
+                  Delete
+                  </a><a class="btn btn-success">clonage</a> </td>
+                
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th>Id</th>
+                <th>Type de client</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Téléphone</th>
+                <th>Acompte</th>
+                <th>Photo</th>
+                <th>Profession</th>
+                <th>Solde</th>
+                <th>User</th>
+                <th>Modification</th>
+                <th>Suppression</th>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
