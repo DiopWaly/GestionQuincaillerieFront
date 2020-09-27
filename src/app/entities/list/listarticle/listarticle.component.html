@@ -1,6 +1,6 @@
 <div class="col-lg-10 col-lg-offset-1 spacer60" >
     <div class="panel panel-primary" >
-        <div class="panel-heading"><h2> Liste des quincailleries</h2></div>
+        <div class="panel-heading"><h2> Liste des articles</h2></div>
         <div class="panel-body">
       <div class="container">
           <table class="table table-hover">
@@ -24,7 +24,7 @@
                 <td>{{art.prixencours}}</td>
                 <td>{{art.description}}</td>
                 <td>{{art.codearticle}}</td>
-                <td>{{art.quincaillerie.libellequic}}</td>
+                <td>{{art.quincaillerie.Libellequic}}</td>
                 <td>{{art.categorie.libelle}}</td>
                 <td><a class="btn btn-secondary" (click)="update(art)">Edit</a></td>
                 <td><a class="btn btn-danger" (click)="delete(art)">Remove</a></td>

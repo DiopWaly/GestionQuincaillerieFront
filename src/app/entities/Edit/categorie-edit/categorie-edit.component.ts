@@ -11,9 +11,11 @@ import { Router } from '@angular/router';
 export class CategorieEditComponent implements OnInit {
 
   public categorieEdit;
+  public categories;
   constructor(private crud : CrudService, private router : Router) { }
   ngOnInit(): void {
     this.categorieEdit = this.crud.getQuincaillerieServ();
+    this.recuper();
   }
 
   edit(f){
@@ -25,7 +27,16 @@ export class CategorieEditComponent implements OnInit {
         },err=>{
            console.log(err);
            
-        })
+        });
+  }
+  recuper(){
+    this.crud.get("categorie/all")
+      .subscribe(data=>{
+        this.categories = data;
+      },err=>{
+        console.log(err);
+        
+      });
   }
 
 }

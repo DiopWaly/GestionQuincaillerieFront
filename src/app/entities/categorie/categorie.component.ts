@@ -1,6 +1,7 @@
-import { Router } from '@angular/router';
-import { CrudService } from './../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
+
+import { CrudService } from './../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categorie',
@@ -9,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CategorieComponent implements OnInit {
 
+  public categories;
   constructor(private crud : CrudService,private router : Router) { }
 
   ngOnInit(): void {
+    this.recuper();
   }
   add(f){
     console.log(f);
@@ -23,6 +26,15 @@ export class CategorieComponent implements OnInit {
           console.log(err);
 
         });
+  }
+  recuper(){
+    this.crud.get("categorie/all")
+      .subscribe(data=>{
+        this.categories = data;
+      },err=>{
+        console.log(err);
+        
+      });
   }
 
 }

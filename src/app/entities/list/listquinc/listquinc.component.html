@@ -3,13 +3,6 @@
       <div class="panel-heading"><h2> Liste des quincailleries</h2></div>
       <div class="panel-body">
     <div class="container">
-        <div *ngIf="confirm == true ">
-            <div class="alert alert-success" role="alert" data-dismiss="alert">
-                Ajout effectue avec succes
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <table class="table table-hover">
           <thead>
             <tr>
@@ -41,11 +34,8 @@
               <td>{{quinc.region}}</td>
               <td>{{quinc.lat}}</td>
               <td>{{quinc.long}}</td>
-              <td>
-                <a class="btn btn-secondary" (click)="update(quinc)">Edit</a>
-                <a class="btn btn-danger" (click)="delete(quinc)">Remove</a>
-                <!-- <i class="material-icons">add</i> -->
-              </td>
+              <td><a class="btn btn-secondary" (click)="update(quinc)">Edit</a></td>
+              <td><a class="btn btn-danger" (click)="delete(quinc)">Remove</a></td>
             </tr>
           </tbody>
         </table>
