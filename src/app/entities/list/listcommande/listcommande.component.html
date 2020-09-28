@@ -37,7 +37,7 @@
             <tbody>
               <tr *ngFor="let com of commandes">
                 <td>{{com.id}}</td>
-                <td>{{com.datecommande}}</td>
+                <td>{{com.datecommande.date|date: 'dd/MM/yyyy'}}</td>
                 <td>{{com.montant}}</td>
                 <td>{{com.numfacture}}</td>
                 <td>{{com.description}}</td>
@@ -48,7 +48,8 @@
                 <td><a class="btn btn-danger btn-sm" (click)="delete(com)">
                   <i class="fas fa-trash"></i>
                   Delete
-                  </a><a class="btn btn-success">clonage</a> </td>
+                  </a></td>
+                  <td><a class="btn btn-success">clonage</a> </td>
                 
               </tr>
             </tbody>

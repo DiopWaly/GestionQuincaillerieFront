@@ -34,6 +34,8 @@ export class ClientEditComponent implements OnInit {
     this.crud.get("user/all")
       .subscribe(data=>{
         this.users = data;
+        console.log(this.users);
+        
       },err=>{
         console.log(err);
         

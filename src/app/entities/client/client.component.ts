@@ -1,6 +1,7 @@
-import { Router } from '@angular/router';
-import { CrudService } from './../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
+
+import { CrudService } from './../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client',
@@ -13,6 +14,7 @@ export class ClientComponent implements OnInit {
   constructor(private crud : CrudService,private router : Router) { }
 
   ngOnInit(): void {
+    this.recupUser();
   }
   add(f){
     console.log(f);
@@ -29,7 +31,7 @@ export class ClientComponent implements OnInit {
     this.crud.get("user/all")
       .subscribe(data=>{
         this.users = data;
-        console.log();
+        console.log(this.users);
         
       },err=>{
         console.log(err);

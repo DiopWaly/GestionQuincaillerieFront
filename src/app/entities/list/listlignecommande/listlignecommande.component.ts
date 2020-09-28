@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listlignecommande',
@@ -27,7 +28,7 @@ export class ListlignecommandeComponent implements OnInit {
   }
   update(lignec : any){
     this.crud.setQuincaillerieServ(lignec);
-    this.router.navigate(['listlignecommande']);
+    this.router.navigate(['editlignecommande']);
   }
   delete(lignec : any){
     this.crud.delete("ligne/commande/delete/"+lignec.id)

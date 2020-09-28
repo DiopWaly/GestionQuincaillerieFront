@@ -35,9 +35,9 @@
             <tbody>
               <tr *ngFor="let op of operations">
                 <td>{{op.id}}</td>
-                <td>{{op.typeoperation}}</td>
-                <td>{{op.client}}</td>
-                <td>{{op.lignecommande}}</td>
+                <td>{{op.typeoperation.typeoperation}}</td>
+                <td>{{op.client.prenom}} {{op.client.nom}}</td>
+                <td>{{op.lignecommande.unit}}</td>
                 <td><a class="btn btn-primary " (click)="update(op)">
                   <i class="fas fa-pencil-alt">
                   </i>

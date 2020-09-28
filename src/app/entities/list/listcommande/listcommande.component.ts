@@ -30,7 +30,7 @@ export class ListcommandeComponent implements OnInit {
   update(commande){
     console.log(commande);
     this.crud.setQuincaillerieServ(commande);
-    this.router.navigate(['listcommande']);
+    this.router.navigate(['editcommande']);
   }
   delete(commande : any){
     this.crud.delete("commande/delete/"+commande.id)

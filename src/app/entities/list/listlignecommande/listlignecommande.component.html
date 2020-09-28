@@ -32,20 +32,17 @@
                 <th>Article</th>
                 <th>Modification</th>
                 <th>Suppression</th>
+                <th>Cloner</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let lc of lignecommandes">
                 <td>{{lc.id}}</td>
-                <td>{{lc.libellequic}}</td>
-                <td>{{lc.codelc}}</td>
-                <td>{{lc.tel}}</td>
-                <td>{{lc.email}}</td>
-                <td>{{lc.adresse}}</td>
-                <td>{{lc.ville}}</td>
-                <td>{{lc.region}}</td>
-                <td>{{lc.lat}}</td>
-                <td>{{lc.long}}</td>
+                <td>{{lc.pu}}</td>
+                <td>{{lc.qte}}</td>
+                <td>{{lc.unit}}</td>
+                <td>{{lc.commande.numfacture}}</td>
+                <td>{{lc.article.libelle}}</td>
                 <td><a class="btn btn-primary " (click)="update(lc)">
                   <i class="fas fa-pencil-alt">
                   </i>
@@ -53,8 +50,8 @@
                 <td><a class="btn btn-danger btn-sm" (click)="delete(lc)">
                   <i class="fas fa-trash"></i>
                   Delete
-                  </a><a class="btn btn-success">clonage</a> </td>
-                
+                  </a></td>
+                  <td><a class="btn btn-success">clonage</a> </td>
               </tr>
             </tbody>
             <tfoot>
@@ -67,6 +64,7 @@
                 <th>Article</th>
                 <th>Modification</th>
                 <th>Suppression</th>
+                <th>cloner</th>
               </tr>
             </tfoot>
           </table>

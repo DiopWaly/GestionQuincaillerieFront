@@ -1,6 +1,7 @@
-import { Router } from '@angular/router';
-import { CrudService } from './../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
+
+import { CrudService } from './../../services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operation',
@@ -15,9 +16,9 @@ export class OperationComponent implements OnInit {
   constructor(private crud : CrudService,private router : Router) { }
 
   ngOnInit(): void {
-    this.typeoperations=this.recuper("typeoperation/all");
-    this.clients=this.recuper("client/all");
-    this.lignecommandes=this.recuper("ligne/commande/all");
+    this.recupertypeOp();
+    this.recuperClient();
+    this.recuperligneC();
   }
   add(f){
     console.log(f);
@@ -30,10 +31,28 @@ export class OperationComponent implements OnInit {
 
         });
   }
-  recuper(url : string){
-    this.crud.get(url)
+  recupertypeOp(){
+    this.crud.get("typeoperation/all")
       .subscribe(data=>{
-          return data;
+          this.typeoperations = data;
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  recuperClient(){
+    this.crud.get("client/all")
+      .subscribe(data=>{
+          this.clients = data;
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  recuperligneC(){
+    this.crud.get("ligne/commande/all")
+      .subscribe(data=>{
+          this.lignecommandes = data;
       },err=>{
         console.log(err);
         

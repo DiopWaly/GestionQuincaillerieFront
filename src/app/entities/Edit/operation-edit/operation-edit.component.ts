@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-operation-edit',
@@ -16,14 +17,37 @@ export class OperationEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.operation = this.crud.getQuincaillerieServ();
-    this.typeoperations=this.recuper("typeoperation/all");
-    this.clients=this.recuper("client/all");
-    this.lignecommandes=this.recuper("ligne/commande/all");
+    this.recupertypeOp();
+    this.recuperClient();
+    this.recuperligneC();
   }
-  recuper(url : string){
-    this.crud.get(url)
+  recupertypeOp(){
+    this.crud.get("typeoperation/all")
       .subscribe(data=>{
-        return data;
+          this.typeoperations = data;
+          console.log(this.typeoperations);
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  recuperClient(){
+    this.crud.get("client/all")
+      .subscribe(data=>{
+          this.clients = data;
+          console.log(this.clients);
+          
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  recuperligneC(){
+    this.crud.get("ligne/commande/all")
+      .subscribe(data=>{
+          this.lignecommandes = data;
+          console.log(this.lignecommandes);
+          
       },err=>{
         console.log(err);
         

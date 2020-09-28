@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listoperation',
@@ -19,6 +20,8 @@ export class ListoperationComponent implements OnInit {
     this.crud.get("operation/all")
       .subscribe(data=>{
         this.operations = data;
+        console.log(this.operations);
+        
       },err=>{
         console.log(err);
       });

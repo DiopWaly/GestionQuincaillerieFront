@@ -22,7 +22,7 @@
         <label for="lignecommande" class="col-form-label">Ligne de commande</label>
         <select class="form-control" name="lignecommande" id="lignecommande" ngModel>
           <option value="" selected>--choisir article--</option>
-          <option *ngFor="let lignecommande of lignecommandes"  value="{{lignecommande.id}}">{{lignecommande.unite}}</option>
+          <option *ngFor="let lignecommande of lignecommandes"  value="{{lignecommande.id}}">{{lignecommande.unit}}</option>
         </select>
       </div>
       <button type="submit" class="btn btn-dark">Valider</button>
