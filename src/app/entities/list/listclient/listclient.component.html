@@ -25,17 +25,14 @@
             <thead>
               <tr>
                 <th>Id</th>
-                <th>Type de client</th>
+                <th>Type</th>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>Adresse</th>
                 <th>Email</th>
                 <th>Téléphone</th>
-                <th>Acompte</th>
-                <th>Photo</th>
-                <th>Profession</th>
                 <th>Solde</th>
                 <th>User</th>
+                <th>Cloner</th>
                 <th>Modification</th>
                 <th>Suppression</th>
               </tr>
@@ -46,39 +43,26 @@
                 <td>{{client.typeclient}}</td>
                 <td>{{client.prenom}}</td>
                 <td>{{client.nom}}</td>
-                <td>{{client.adresse}}</td>
                 <td>{{client.email}}</td>
                 <td>{{client.tel}}</td>
-                <td>{{client.acompte}}</td>
-                <td>{{client.photo}}</td>
-                <td>{{client.profession}}</td>
                 <td>{{client.solde}}</td>
                 <td>{{client.user.user}}</td>
-                <td><a class="btn btn-primary " (click)="update(client)">
-                  <i class="fas fa-pencil-alt">
-                  </i>
-                  Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(client)">
-                  <i class="fas fa-trash"></i>
-                  Delete
-                  </a><a class="btn btn-success">clonage</a> </td>
-                
+                <td><a class="btn btn-primary " (click)="cloner(client)"><i class="fas fa-times"></i>Clone</a></td>
+                <td><a class="btn btn-secondary " (click)="update(client)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(client)"><i class="fas fa-trash"></i>Delete</a></td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <th>Id</th>
-                <th>Type de client</th>
+                <th>Type</th>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>Adresse</th>
                 <th>Email</th>
                 <th>Téléphone</th>
-                <th>Acompte</th>
-                <th>Photo</th>
-                <th>Profession</th>
                 <th>Solde</th>
                 <th>User</th>
+                <th>Clone</th>
                 <th>Modification</th>
                 <th>Suppression</th>
               </tr>

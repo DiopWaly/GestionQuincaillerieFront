@@ -1,5 +1,6 @@
-import { CrudService } from './../../../services/crud.service';
 import { Component, OnInit } from '@angular/core';
+
+import { CrudService } from './../../../services/crud.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -38,6 +39,15 @@ export class ListclientComponent implements OnInit {
         console.log(err);
         
       })
+  }
+  cloner(client){
+    this.crud.cloner("client/clone/"+client.id,client)
+      .subscribe(data=>{
+        console.log(data);
+        this.listclient();
+      },err=>{
+        console.log(err);
+      });
   }
 
 }

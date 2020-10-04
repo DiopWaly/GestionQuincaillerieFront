@@ -47,8 +47,7 @@
         </div>
         <div class="form-group">
           <label for="user" class="col-form-label">User</label>
-          <select class="form-control" name="user" id="user" ngModel>
-            <option value="{{clientEdit.user.id}}" selected>{{clientEdit.user.user}}</option>
+          <select class="form-control" name="user" id="user" ngModel="{{clientEdit.user.id}}">
             <option *ngFor="let user of users"  value="{{user.id}}">{{user.user}}</option>
           </select>
         </div>

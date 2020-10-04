@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listcommande',
@@ -38,6 +39,16 @@ export class ListcommandeComponent implements OnInit {
         this.listcommande();
         console.log(data);
         
+      },err=>{
+        console.log(err);
+        
+      });
+  }
+  cloner(commande){
+    this.crud.cloner("commande/clone/"+commande.id,commande)
+      .subscribe(data=>{
+         console.log(data);
+         this.listcommande();
       },err=>{
         console.log(err);
         

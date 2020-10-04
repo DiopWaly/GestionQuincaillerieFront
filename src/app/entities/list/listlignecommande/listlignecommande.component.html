@@ -30,9 +30,9 @@
                 <th>Unité</th>
                 <th>Commande</th>
                 <th>Article</th>
+                <th>Cloner</th>
                 <th>Modification</th>
                 <th>Suppression</th>
-                <th>Cloner</th>
               </tr>
             </thead>
             <tbody>
@@ -43,15 +43,9 @@
                 <td>{{lc.unit}}</td>
                 <td>{{lc.commande.numfacture}}</td>
                 <td>{{lc.article.libelle}}</td>
-                <td><a class="btn btn-primary " (click)="update(lc)">
-                  <i class="fas fa-pencil-alt">
-                  </i>
-                  Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(lc)">
-                  <i class="fas fa-trash"></i>
-                  Delete
-                  </a></td>
-                  <td><a class="btn btn-success">clonage</a> </td>
+                <td><a class="btn btn-primary " (click)="cloner(lc)"><i class="fas fa-times"></i>Clone</a></td>
+                <td><a class="btn btn-secondary " (click)="update(lc)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(lc)"><i class="fas fa-trash"></i>Delete</a></td>
               </tr>
             </tbody>
             <tfoot>
@@ -62,9 +56,9 @@
                 <th>Unité</th>
                 <th>Commande</th>
                 <th>Article</th>
+                <th>cloner</th>
                 <th>Modification</th>
                 <th>Suppression</th>
-                <th>cloner</th>
               </tr>
             </tfoot>
           </table>

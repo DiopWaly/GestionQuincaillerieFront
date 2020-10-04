@@ -41,5 +41,14 @@ export class ListarticleComponent implements OnInit {
     this.router.navigate(['article']);
   }
 
+  clone(article){
+    this.crud.cloner("art/clone/"+article.id,article)
+      .subscribe(data=>{
+        console.log(data);
+        this.listarticle();
+      },err=>{
+        console.log(err);
+      });
+  }
 
 }

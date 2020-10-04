@@ -41,5 +41,14 @@ export class ListlignecommandeComponent implements OnInit {
         
       });
   }
+  cloner(lignecom){
+    this.crud.cloner("ligne/commande/clone/"+lignecom.id,lignecom)
+      .subscribe(data=>{
+        console.log(data);
+        this.listlignecommande();
+      },err=>{
+        console.log(err);
+      });
+  }
 
 }

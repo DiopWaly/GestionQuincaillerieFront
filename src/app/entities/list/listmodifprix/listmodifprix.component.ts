@@ -46,5 +46,15 @@ export class ListmodifprixComponent implements OnInit {
   newModifprix(){
     this.router.navigate(['modifprix']);
   }
+  cloner(modifprix){
+    this.crud.cloner("modifprix/clone/"+modifprix.id,modifprix)
+      .subscribe(data=>{
+        console.log(data);
+        this.list();
+      },err=>{
+        console.log(err);
+        
+      });
+  }
 
 }

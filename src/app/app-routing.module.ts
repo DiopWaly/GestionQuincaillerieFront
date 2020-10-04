@@ -38,7 +38,7 @@ import { UserEditComponent } from './entities/Edit/user-edit/user-edit.component
 
 const routes: Routes = [
   {
-    path:"", component: ArticleComponent
+    path:"", component: ListarticleComponent
   },
   {
     path:"modifprix", component: ModifprixComponent

@@ -6,8 +6,7 @@
                 <form #f="ngForm" (ngSubmit)="edit(f.value)">
                     <div class="form-group">
                         <label for="categorie" class="col-form-label">Categorie</label>
-                        <select class="form-control" name="categorie" id="categorie" ngModel>
-                            <option value="">--choisi ----</option>
+                        <select class="form-control" name="categorie" id="categorie" ngModel="{{categorieEdit.id}}">
                             <option *ngFor="let categorie of categories" value="{{categorie.id}}"> {{categorie.libelle}}</option>
                         </select>
                       </div>

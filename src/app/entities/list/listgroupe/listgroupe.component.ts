@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listgroupe',
@@ -40,5 +41,14 @@ export class ListgroupeComponent implements OnInit {
         
       });
   }
-
+  cloner(groupe){
+    this.crud.cloner("groupe/clone/"+groupe.id,groupe)
+      .subscribe(data=>{
+        console.log(data);
+        this.listgroupe();
+      },err=>{
+        console.log(err);
+        
+      });
+  }
 }

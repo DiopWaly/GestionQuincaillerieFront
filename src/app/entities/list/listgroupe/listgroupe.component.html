@@ -27,6 +27,7 @@
                 <th>Id</th>
                 <th>Code groupe</th>
                 <th>Libellé du groupe</th>
+                <th>Clone</th>
                 <th>Modification</th>
                 <th>Suppression</th>
               </tr>
@@ -36,14 +37,9 @@
                 <td>{{groupe.id}}</td>
                 <td>{{groupe.codegroupe}}</td>
                 <td>{{groupe.libellegroupe}}</td>
-                <td><a class="btn btn-primary " (click)="update(groupe)">
-                  <i class="fas fa-pencil-alt">
-                  </i>
-                  Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(groupe)">
-                  <i class="fas fa-trash"></i>
-                  Delete
-                  </a><a class="btn btn-success">clonage</a> </td>
+                <td><a class="btn btn-primary " (click)="cloner(groupe)"><i class="fas fa-times"></i>Clone</a></td>
+                <td><a class="btn btn-secondary" (click)="update(groupe)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(groupe)"><i class="fas fa-trash"></i>Delete</a></td>
                 
               </tr>
             </tbody>
@@ -52,6 +48,7 @@
                 <th>Id</th>
                 <th>Code groupe</th>
                 <th>Libellé du groupe</th>
+                <th>Clone</th>
                 <th>Modification</th>
                 <th>Suppression</th>
               </tr>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listuser',
@@ -19,6 +20,7 @@ export class ListuserComponent implements OnInit {
     this.crud.get("user/all")
       .subscribe(data=>{
          this.users = data;
+         console.log(this.users);   
       },err=>{
         console.log(err);
         
@@ -37,7 +39,17 @@ export class ListuserComponent implements OnInit {
   }
   update(user){
     this.crud.setQuincaillerieServ(user);
-    this.router.navigate(['listuser']);
+    this.router.navigate(['edituser']);
+  }
+  cloner(user){
+    this.crud.cloner("user/clone/"+user.id,user)
+      .subscribe(data=>{
+        console.log(data);
+        this.listuser();
+      },err=>{
+        console.log(err);
+        
+      });
   }
 
 }

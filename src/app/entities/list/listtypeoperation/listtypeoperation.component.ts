@@ -47,5 +47,15 @@ export class ListtypeoperationComponent implements OnInit {
   newtypeoperation(){
     this.router.navigate(['typeoperation']);
   }
+  cloner(typeOp){
+    this.crud.cloner("typeoperation/clone/"+typeOp.id, typeOp)
+      .subscribe(data=>{
+        console.log(data);
+        this.list();
+      },err=>{
+        console.log(err);
+        
+      });
+  }
 
 }

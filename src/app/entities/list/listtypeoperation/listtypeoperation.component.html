@@ -12,17 +12,18 @@
             <tr>
               <th>Id</th>
               <th>Type Operation</th>
+              <th>Clone</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let tp of typeOp">
               <td>{{tp.id}}</td>
               <td>{{tp.typeoperation}}</td>
-              <td>
-                <a class="btn btn-secondary" (click)="update(tp)">Edit</a>
-                <a class="btn btn-danger" (click)="delete(tp)">Remove</a>
-                <!-- <i class="material-icons">add</i> -->
-              </td>
+              <td><a class="btn btn-primary" (click)="cloner(tp)">Clone</a></td>
+                <td><a class="btn btn-secondary" (click)="update(tp)">Edit</a></td>
+                <td><a class="btn btn-danger" (click)="delete(tp)">Remove</a></td>
             </tr>
           </tbody>
         </table>

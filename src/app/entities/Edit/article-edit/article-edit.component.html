@@ -26,15 +26,13 @@
         </div>
         <div class="form-group">
           <label for="categorie" class="col-form-label">Categorie</label>
-          <select class="form-control" name="categorie" id="categorie" ngModel = "{{articleEdit.categorie.libelle}}">
-            <option value="{{articleEdit.categorie.id}}" selected>{{articleEdit.categorie.libelle}}</option>
+          <select class="form-control" name="categorie" id="categorie" ngModel = "{{articleEdit.categorie.id}}">
             <option *ngFor="let cat of categories" value="{{cat.categorie.id}}">{{ cat.categorie.libelle }}</option>
           </select>
         </div>
         <div class="form-group">
           <label for="quincaillerie" class="col-form-label">Quincaillerie</label>
-          <select class="form-control" name="quincaillerie" id="quincaillerie" ngModel>
-            <option value="{{articleEdit.quincaillerie.id}}" selected="selected">{{articleEdit.quincaillerie.Libellequic}}</option>
+          <select class="form-control" name="quincaillerie" id="quincaillerie" ngModel="{{articleEdit.quincaillerie.id}}">
             <option *ngFor="let quinc of quincalleries" value="{{quinc.id}}"> {{quinc.libellequic}}</option>
           </select>
         </div>

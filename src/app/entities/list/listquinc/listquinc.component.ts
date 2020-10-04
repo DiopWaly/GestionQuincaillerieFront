@@ -47,5 +47,15 @@ export class ListquincComponent implements OnInit {
       });
     }
   }
+  cloner(quinc){
+    this.crud.cloner("quincaillerie/clone/"+quinc.id, quinc)
+      .subscribe(data=>{
+        console.log(data);
+        this.listequincaillerie();
+      },err=>{
+        console.log(err);
+        
+      });
+  }
 
 }

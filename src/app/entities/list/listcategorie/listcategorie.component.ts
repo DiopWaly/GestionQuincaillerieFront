@@ -44,5 +44,14 @@ export class ListcategorieComponent implements OnInit {
         
       });
   }
+  cloner(categorie){
+    this.crud.cloner("categorie/clone/"+categorie.id,categorie)
+      .subscribe(data=>{
+        console.log(data);
+        this.listcategories();
+      },err=>{
+        console.log(err);
+      });
+  }
 
 }

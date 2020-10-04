@@ -14,6 +14,7 @@
                 <th>Codearticle</th>
                 <th>Quincallerie</th>
                 <th>categories</th>
+                <th>Cloner</th>
                 <th>Update</th>
                 <th>Delete</th>
               </tr>
@@ -27,6 +28,7 @@
                 <td>{{art.codearticle}}</td>
                 <td>{{art.quincaillerie.Libellequic}}</td>
                 <td>{{art.categorie.libelle}}</td>
+                <td><a class="btn btn-primary" (click)="clone(art)">Cloner</a></td>
                 <td><a class="btn btn-secondary" (click)="update(art)">Edit</a></td>
                 <td><a class="btn btn-danger" (click)="delete(art)">Remove</a></td>
               </tr>

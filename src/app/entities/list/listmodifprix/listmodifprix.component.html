@@ -16,6 +16,9 @@
               <th>Prix</th>
               <th>Remarque</th>
               <th>Ancien prix</th>
+              <th>Clone</th>
+              <th>Edit</th>
+              <th>Supprimer</th>
             </tr>
           </thead>
           <tbody>
@@ -26,11 +29,9 @@
               <td>{{modp.prix}}</td>
               <td>{{modp.remarque}}</td>
               <td>{{modp.ancienprix}}</td>
-              <td>
-                <a class="btn btn-secondary" (click)="update(modp)">Edit</a>
-                <a class="btn btn-danger" (click)="delete(modp)">Remove</a>
-                <!-- <i class="material-icons">add</i> -->
-              </td>
+              <td><a class="btn btn-primary" (click)="cloner(modp)">Clone</a></td>
+              <td><a class="btn btn-secondary" (click)="update(modp)">Edit</a></td>
+              <td><a class="btn btn-danger" (click)="delete(modp)">Remove</a></td>
             </tr>
           </tbody>
         </table>

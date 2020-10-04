@@ -39,7 +39,17 @@ export class ListoperationComponent implements OnInit {
       },err=>{
         console.log(err);
         
-      })
+      });
+  }
+  cloner(operation){
+    this.crud.cloner("operation/clone/"+operation.id,operation)
+      .subscribe(data=>{
+        console.log(data);
+        this.listoperation();
+      },err=>{
+        console.log(err);
+        
+      });
   }
 
 }

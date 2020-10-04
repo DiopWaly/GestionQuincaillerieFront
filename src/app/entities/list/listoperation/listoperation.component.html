@@ -28,6 +28,7 @@
                 <th>Type d'opération</th>
                 <th>Client</th>
                 <th>Ligne de commande</th>
+                <th>Clone</th>
                 <th>Modification</th>
                 <th>Suppression</th>
               </tr>
@@ -38,14 +39,9 @@
                 <td>{{op.typeoperation.typeoperation}}</td>
                 <td>{{op.client.prenom}} {{op.client.nom}}</td>
                 <td>{{op.lignecommande.unit}}</td>
-                <td><a class="btn btn-primary " (click)="update(op)">
-                  <i class="fas fa-pencil-alt">
-                  </i>
-                  Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(op)">
-                  <i class="fas fa-trash"></i>
-                  Delete
-                  </a><a class="btn btn-success">clonage</a> </td>
+                <td><a class="btn btn-primary " (click)="cloner(op)"><i class="fas fa-times"></i>Clone</a></td>
+                <td><a class="btn btn-secondary" (click)="update(op)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td><a class="btn btn-danger btn-sm" (click)="delete(op)"><i class="fas fa-trash"></i>Delete</a></td>
                 
               </tr>
             </tbody>
@@ -55,6 +51,7 @@
                 <th>Type d'opération</th>
                 <th>Client</th>
                 <th>Ligne de commande</th>
+                <th>Clone</th>
                 <th>Modification</th>
                 <th>Suppression</th>
             </tr>

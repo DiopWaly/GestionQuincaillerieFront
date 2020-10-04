@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { CrudService } from 'src/app/services/crud.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-edit',
@@ -16,19 +17,35 @@ export class UserEditComponent implements OnInit {
 
   ngOnInit(): void {
     this.userEdit = this.crud.getQuincaillerieServ();
-    this.quincailleries = this.recupe("quincaillerie/all");
-    this.groupes = this.recupe("groupe/all");
+    console.log(this.userEdit);
+    
+    this.recupeQuinc();
+    this.recupeGroup();
   }
-  recupe(url : string){
-    this.crud.get(url)
+  recupeQuinc(){
+    this.crud.get("quincaillerie/all")
      .subscribe(data=>{
-       return data;
+       this.quincailleries = data;
+       console.log(this.quincailleries);
+       
+     },err=>{
+         console.log(err);
+         
+     });
+  }
+  recupeGroup(){
+    this.crud.get("groupe/all")
+     .subscribe(data=>{
+      this.groupes = data;
+      console.log(this.groupes);
+      
      },err=>{
          console.log(err);
          
      });
   }
   edit(f){
+    console.log(f);
     this.crud.update("user/update/"+this.userEdit.id,f)
       .subscribe(data=>{
           this.router.navigate(['listuser']);

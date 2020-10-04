@@ -25,6 +25,9 @@ export class CrudService {
   add(route:String, marque : any){
     return this.httpclient.post(this.url+""+route,marque);
   }
+  cloner(route:String, marque : any){
+    return this.httpclient.post(this.url+""+route,marque);
+  }
 
   public getQuincaillerieServ(){
     return this.quincaillerieServ;

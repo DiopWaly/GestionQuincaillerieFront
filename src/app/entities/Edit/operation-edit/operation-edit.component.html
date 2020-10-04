@@ -6,22 +6,19 @@
         <form #f="ngForm" (ngSubmit)="edit(f.value)">
         <div class="form-group">
           <label for="typeoperation" class="col-form-label">Type d'opération</label>
-          <select class="form-control" name="typeoperation" id="typeoperation" ngModel>
-            <option value="{{operation.typeoperation.id}}" selected>{{operation.typeoperation.typeoperation}}</option>
+          <select class="form-control" name="typeoperation" id="typeoperation" ngModel="{{operation.typeoperation.id}}">
             <option *ngFor="let typeoperation of typeoperations"  value="{{typeoperation.id}}">{{typeoperation.typeoperation}}</option>
           </select>
         </div>
         <div class="form-group">
             <label for="client" class="col-form-label">Client</label>
-            <select class="form-control" name="client" id="client" ngModel>
-                <option value="{{operation.client.id}}" selected>{{operation.client.prenom}} {{operation.client.nom}}</option>
+            <select class="form-control" name="client" id="client" ngModel="{{operation.client.id}}">
                 <option *ngFor="let client of clients"  value="{{client.id}}">{{client.prenom}} {{client.nom}}</option>
             </select>
           </div>
         <div class="form-group">
           <label for="lignecommande" class="col-form-label">Ligne de commande</label>
-          <select class="form-control" name="lignecommande" id="lignecommande" ngModel>
-            <option value="{{operation.lignecommande.id}}" selected>{{operation.lignecommande.unite}}</option>
+          <select class="form-control" name="lignecommande" id="lignecommande" ngModel="{{operation.lignecommande.id}}">
             <option *ngFor="let lignecommande of lignecommandes"  value="{{lignecommande.id}}">{{lignecommande.unit}}</option>
           </select>
         </div>

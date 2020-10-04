@@ -16,6 +16,7 @@
               <th>Region</th>
               <th>Latitude</th>
               <th>Longitude</th>
+              <th>Clone</th>
               <th>Modification</th>
               <th>Suppression</th>
 
@@ -34,6 +35,7 @@
               <td>{{quinc.region}}</td>
               <td>{{quinc.lat}}</td>
               <td>{{quinc.long}}</td>
+              <td><a class="btn btn-primary" (click)="cloner(quinc)">Clone</a></td>
               <td><a class="btn btn-secondary" (click)="update(quinc)">Edit</a></td>
               <td><a class="btn btn-danger" (click)="delete(quinc)">Remove</a></td>
             </tr>
