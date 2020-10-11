@@ -3,55 +3,133 @@
       <div class="panel panel-primary" >
           <div class="panel-heading"><h2> Formulaire d'un client</h2></div>
           <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <form [formGroup]="form" (ngSubmit)="add()">
       <div class="form-group">
         <label for="typeclient" class="col-form-label">Type client</label>
-        <input type="text" class="form-control" name="typeclient" id="typeclient" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="typeclient" id="typeclient"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.typeclient">
+            <div class="error-message" *ngIf="form.get('typeclient').hasError(validation.type) && (form.get('typeclient').dirty || form.get('typeclient').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="prenom" class="col-form-label">Prenom</label>
-        <input type="text" class="form-control" name="prenom" id="prenom" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="prenom" id="prenom"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.prenom">
+            <div class="error-message" *ngIf="form.get('prenom').hasError(validation.type) && (form.get('prenom').dirty || form.get('prenom').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="nom" class="col-form-label">Nom</label>
-        <input type="text" class="form-control" name="nom" id="nom" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="nom" id="nom"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.nom">
+            <div class="error-message" *ngIf="form.get('nom').hasError(validation.type) && (form.get('nom').dirty || form.get('nom').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="adresse" class="col-form-label">Adresse</label>
-        <input type="text" class="form-control" name="adresse" id="adresse" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="adresse" id="adresse"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.adresse">
+            <div class="error-message" *ngIf="form.get('adresse').hasError(validation.type) && (form.get('adresse').dirty || form.get('adresse').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="email" class="col-form-label">Email</label>
-        <input type="email" class="form-control" name="email" id="email" ngModel/>
+        <input type="email" class="form-control" formControlName="email" id="email"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.email">
+            <div class="error-message" *ngIf="form.get('email').hasError(validation.type) && (form.get('email').dirty || form.get('email').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="tel" class="col-form-label">Telephone</label>
-        <input type="text" class="form-control" name="tel" id="tel" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="tel" id="tel"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.tel">
+            <div class="error-message" *ngIf="form.get('tel').hasError(validation.type) && (form.get('tel').dirty || form.get('tel').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="acompte" class="col-form-label">Acompte</label>
-        <input type="number" class="form-control" name="acompte" id="acompte" ngModel required="required"/>
+        <input type="number" class="form-control" formControlName="acompte" id="acompte"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.acompte">
+            <div class="error-message" *ngIf="form.get('acompte').hasError(validation.type) && (form.get('acompte').dirty || form.get('acompte').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="photo" class="col-form-label">Photo</label>
-        <input type="file" class="form-control-file" name="photo" id="photo" ngModel required="required"/>
+        <input type="file" class="form-control-file" formControlName="photo" id="photo" (change)="onFileChange($event)" />
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.photo">
+            <div class="error-message" *ngIf="form.get('photo').hasError(validation.type) && (form.get('photo').dirty || form.get('photo').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+        <img [src]="imageSrc" *ngIf="imageSrc" style="height: 100px; width:150px">
       </div>
       <div class="form-group">
         <label for="profession" class="col-form-label">Profession</label>
-        <input type="text" class="form-control" name="profession" id="profession" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="profession" id="profession"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.profession">
+            <div class="error-message" *ngIf="form.get('profession').hasError(validation.type) && (form.get('profession').dirty || form.get('profession').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="solde" class="col-form-label">Solde</label>
-        <input type="number" class="form-control" name="solde" id="solde" ngModel required="required"/>
+        <input type="number" class="form-control" formControlName="solde" id="solde"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.solde">
+            <div class="error-message" *ngIf="form.get('solde').hasError(validation.type) && (form.get('solde').dirty || form.get('solde').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+      </div>
       </div>
       <div class="form-group">
         <label for="quincaillerie" class="col-form-label">User</label>
-        <select class="form-control" name="user" id="user" ngModel>
+        <select class="form-control" formControlName="user" id="user">
           <option value="" selected>--choisir l'utilisateur--</option>
           <option *ngFor="let user of users"  value="{{user.id}}">{{user.user}}</option>
         </select>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.user">
+            <div class="error-message" *ngIf="form.get('user').hasError(validation.type) && (form.get('user').dirty || form.get('user').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
       </div>
-      <button type="submit" class="btn btn-dark">Valider</button>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="!form.valid">Valider</button>
     </form>
       </div>
     </div>

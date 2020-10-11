@@ -3,14 +3,28 @@
       <div class="panel panel-primary" >
           <div class="panel-heading"><h2>Ajout Groupe</h2></div>
           <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <form [formGroup]="form" (ngSubmit)="add()">
       <div class="form-group">
         <label for="codegroupe" class="col-form-label">Code Groupe</label>
-        <input type="text" class="form-control" name="codegroupe" id="codegroupe" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="codegroupe" id="codegroupe"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.codegroupe">
+            <div class="error-message" *ngIf="form.get('codegroupe').hasError(validation.type) && (form.get('codegroupe').dirty || form.get('codegroupe').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
       <div class="form-group">
         <label for="libellegroupe" class="col-form-label">Libelle du groupe</label>
-        <input type="text" class="form-control" name="libellegroupe" id="libellegroupe" ngModel required="required"/>
+        <input type="text" class="form-control" formGroupName="libellegroupe" id="libellegroupe"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.libellegroupe">
+            <div class="error-message" *ngIf="form.get('libellegroupe').hasError(validation.type) && (form.get('libellegroupe').dirty || form.get('libellegroupe').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
 
       <button type="submit" class="btn btn-dark">Valider</button>
@@ -19,5 +33,3 @@
     </div>
   </div>
   </div>
-
-

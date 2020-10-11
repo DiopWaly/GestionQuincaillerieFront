@@ -6,27 +6,55 @@
   <title>Document</title>
 </head>
 <body>
-  <form #f="ngForm" (ngSubmit)="add(f.value)">
+  <form [formGroup]="form" (ngSubmit)="add()">
     <div class="form-group">
       <label for="prix" class="col-form-label">Prix</label>
-      <input type="number" class="form-control" name="prix" id="prix" ngModel required="required"/>
+      <input type="number" class="form-control" formControlName="prix" id="prix"/>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.prix">
+          <div class="error-message" *ngIf="form.get('prix').hasError(validation.type) && (form.get('prix').dirty || form.get('prix').touched)">
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
     </div>
     <div class="form-group">
       <label for="remarque" class="col-form-label">Remarque</label>
-      <input type="text" class="form-control" name="remarque" id="remarque" ngModel required="required"/>
+      <input type="text" class="form-control" formControlName="remarque" id="remarque"/>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.remarque">
+          <div class="error-message" *ngIf="form.get('remarque').hasError(validation.type) && (form.get('remarque').dirty || form.get('remarque').touched)">
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
     </div>
     <div class="form-group">
       <label for="ancienprix" class="col-form-label">Ancien Prix</label>
-      <input type="number" class="form-control" name="ancienprix" id="ancienprix" ngModel required="required"/>
+      <input type="number" class="form-control" formControlName="ancienprix" id="ancienprix" />
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.ancienprix">
+          <div class="error-message" *ngIf="form.get('ancienprix').hasError(validation.type) && (form.get('ancienprix').dirty || form.get('ancienprix').touched)">
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
     </div>
     <div class="form-group">
       <label for="article" class="col-form-label">Article</label>
-      <select class="form-control" name="article" id="article" ngModel>
+      <select class="form-control" formControlName="article" id="article">
         <option value="" selected>--choisir article--</option>
         <option *ngFor="let article of articles"  value="{{article.id}}">{{article.libelle}}</option>
       </select>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validation_messages.article">
+          <div class="error-message" *ngIf="form.get('article').hasError(validation.type) && (form.get('article').dirty || form.get('article').touched)">
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Valider</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Valider</button>
   </form>
 </body>
 </html>

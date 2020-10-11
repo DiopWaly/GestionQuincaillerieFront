@@ -3,42 +3,91 @@
     <div class="panel panel-primary" >
       <div class="panel-heading"><h2> Formulaire d'un Article</h2></div>
       <div class="panel-body">
-          <form #f="ngForm" (ngSubmit)="add(f.value)">
+          <form [formGroup]="form" (ngSubmit)="add()">
               <div class="form-group">
                 <label for="libelle" class="col-form-label">Libelle</label>
-                <input type="text" class="form-control" name="libelle" id="libelle" ngModel required="required"/>
+                <input type="text" class="form-control" formControlName="libelle"/>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.libelle">
+                    <div class="error-message" *ngIf="form.get('libelle').hasError(validation.type) && (form.get('libelle').dirty || form.get('libelle').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="prixencours" class="col-form-label">Prix en cours</label>
-                <input type="number" class="form-control" name="prixencours" id="prixencours" ngModel required="required"/>
+                <input type="number" class="form-control" formControlName="prixencours"/>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.prixencours">
+                    <div class="error-message" *ngIf="form.get('prixencours').hasError(validation.type) && (form.get('prixencours').dirty || form.get('prixencours').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="unite" class="col-form-label">Unité</label>
-                <input type="text" class="form-control" name="unite" id="unite" ngModel required="required"/>
+                <input type="text" class="form-control" formControlName="unite"/>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.unite">
+                    <div class="error-message" *ngIf="form.get('unite').hasError(validation.type) && (form.get('unite').dirty || form.get('unite').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="codearticle" class="col-form-label">Code Article</label>
-                <input type="text" class="form-control" name="codearticle" id="codearticle" ngModel required="required"/>
+                <input type="text" class="form-control" formControlName="codearticle"/>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.codearticle">
+                    <div class="error-message" *ngIf="form.get('codearticle').hasError(validation.type) && (form.get('codearticle').dirty || form.get('codearticle').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="description" class="col-form-label">Description</label>
-                <input type="text" class="form-control" name="description" id="description" ngModel required="required"/>
+                <input type="text" class="form-control" formControlName="description"/>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.description">
+                    <div class="error-message" *ngIf="form.get('description').hasError(validation.type) && (form.get('description').dirty || form.get('description').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="categorie" class="col-form-label">Categorie</label>
-                <select class="form-control" name="categorie" id="categorie" ngModel>
+                <select class="form-control" formControlName="categorie">
                   <option value="" selected>--choisir categorie--</option>
                   <option *ngFor="let cat of categories" value="{{cat.categorie.id}}">{{ cat.categorie.libelle }}</option>
                 </select>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.categorie">
+                    <div class="error-message" *ngIf="form.get('categorie').hasError(validation.type) && (form.get('categorie').dirty || form.get('categorie').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
               <div class="form-group">
                 <label for="quincaillerie" class="col-form-label">Quincaillerie</label>
-                <select class="form-control" name="quincaillerie" id="quincaillerie" ngModel>
+                <select class="form-control" formControlName="quincaillerie">
                   <option value="" selected>--choisir quincaillerie--</option>
                   <option *ngFor="let quinc of quincalleries" value="{{quinc.id}}"> {{quinc.libellequic}}</option>
                 </select>
+                <div class="error-container">
+                  <ng-container *ngFor="let validation of validation_messages.quincaillerie">
+                    <div class="error-message" *ngIf="form.get('quincaillerie').hasError(validation.type) && (form.get('quincaillerie').dirty || form.get('quincaillerie').touched)">
+                      <span>{{ validation.message }}</span>
+                    </div>
+                  </ng-container>
+                </div>
               </div>
-              <button type="submit" class="btn btn-dark">Valider</button>
+              <button type="submit" class="btn btn-dark" [disabled]="!form.valid">Valider</button>
           </form>
       </div>
     </div>

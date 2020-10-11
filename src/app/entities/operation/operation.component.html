@@ -3,29 +3,50 @@
       <div class="panel panel-primary" >
           <div class="panel-heading"><h2>Operation Opération</h2></div>
           <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <form [formGroup]="form" (ngSubmit)="add()">
       <div class="form-group">
         <label for="typeoperation" class="col-form-label">Type d'opération</label>
-        <select class="form-control" name="typeoperation" id="typeoperation" ngModel>
+        <select class="form-control" formControlName="typeoperation" id="typeoperation">
           <option value="" selected>--choisir type d'opération--</option>
           <option *ngFor="let typeoperation of typeoperations"  value="{{typeoperation.id}}">{{typeoperation.typeoperation}}</option>
         </select>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.typeoperation">
+            <div class="error-message" *ngIf="form.get('typeoperation').hasError(validation.type) && (form.get('typeoperation').dirty || form.get('typeoperation').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
       <div class="form-group">
           <label for="client" class="col-form-label">Client</label>
-          <select class="form-control" name="client" id="client" ngModel>
+          <select class="form-control" formControlName="client" id="client">
               <option value="" selected>--choisir client--</option>
               <option *ngFor="let client of clients"  value="{{client.id}}">{{client.prenom}} {{client.nom}}</option>
           </select>
+          <div class="error-container">
+            <ng-container *ngFor="let validation of validation_messages.client">
+              <div class="error-message" *ngIf="form.get('client').hasError(validation.type) && (form.get('client').dirty || form.get('client').touched)">
+                <span>{{ validation.message }}</span>
+              </div>
+            </ng-container>
+          </div>
         </div>
       <div class="form-group">
         <label for="lignecommande" class="col-form-label">Ligne de commande</label>
-        <select class="form-control" name="lignecommande" id="lignecommande" ngModel>
+        <select class="form-control" formControlName="lignecommande" id="lignecommande">
           <option value="" selected>--choisir article--</option>
           <option *ngFor="let lignecommande of lignecommandes"  value="{{lignecommande.id}}">{{lignecommande.unit}}</option>
         </select>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.lignecommande">
+            <div class="error-message" *ngIf="form.get('lignecommande').hasError(validation.type) && (form.get('montant').dirty || form.get('lignecommande').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
-      <button type="submit" class="btn btn-dark">Valider</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.invalid">Valider</button>
     </form>
       </div>
     </div>

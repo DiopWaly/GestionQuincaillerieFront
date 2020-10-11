@@ -3,12 +3,19 @@
       <div class="panel panel-primary" >
           <div class="panel-heading"><h2> Formulaire d'un type d'opération</h2></div>
           <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="add(f.value)">
+      <form [formGroup]="form" (ngSubmit)="add()">
       <div class="form-group">
         <label for="typeoperation" class="col-form-label">Typeoperation</label>
-        <input type="text" class="form-control" name="typeoperation" id="typeoperation" ngModel required="required"/>
+        <input type="text" class="form-control" formControlName="typeoperation" id="typeoperation"/>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validation_messages.typeoperation">
+            <div class="error-message" *ngIf="form.get('typeoperation').hasError(validation.type) && (form.get('typeoperation').dirty || form.get('typeoperation').touched)">
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
       </div>
-      <button type="submit" class="btn btn-dark">Valider</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Valider</button>
     </form>
       </div>
     </div>
