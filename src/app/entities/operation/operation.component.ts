@@ -30,13 +30,13 @@ export class OperationComponent implements OnInit {
   constructor(private crud : CrudService,private router : Router) { 
     this.form = new FormGroup({
       typeoperation: new FormControl('', Validators.compose([
-        // Validators.required
+        Validators.required
       ])),
       client: new FormControl('', Validators.compose([
-        // Validators.required
+        Validators.required
       ])),
       lignecommande: new FormControl('', Validators.compose([
-        // Validators.required
+        Validators.required
       ]))
     });
   }

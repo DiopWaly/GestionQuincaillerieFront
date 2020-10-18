@@ -10,31 +10,37 @@
         <table class="table table-hover"> 
           <thead>
             <tr>
+              <th>Cocher</th>
               <th>Id</th>
               <th>Article</th>
               <th>Date de modification</th>
               <th>Prix</th>
               <th>Remarque</th>
               <th>Ancien prix</th>
-              <th>Clone</th>
-              <th>Edit</th>
-              <th>Supprimer</th>
+              <th *ngIf="!test">Cloner</th>
+                <th *ngIf="!test">Update</th>
+                <th *ngIf="!test">Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let modp of modifprix">
+              <td><input type="checkbox" value="{{modp.id}}" (change)="recuper(modp.id)"/></td>
               <td>{{modp.id}}</td>
               <td>{{modp.article.id}}</td>
               <td>{{modp.datemodif.date | date:'d/MM/yyyy hh:mm:ss'}}</td>
               <td>{{modp.prix}}</td>
               <td>{{modp.remarque}}</td>
               <td>{{modp.ancienprix}}</td>
-              <td><a class="btn btn-primary" (click)="cloner(modp)">Clone</a></td>
-              <td><a class="btn btn-secondary" (click)="update(modp)">Edit</a></td>
-              <td><a class="btn btn-danger" (click)="delete(modp)">Remove</a></td>
+              <td *ngIf="!test"><a class="btn btn-primary" (click)="cloner(modp)">Clone</a></td>
+              <td *ngIf="!test"><a class="btn btn-secondary" (click)="update(modp)">Edit</a></td>
+              <td *ngIf="!test"><a class="btn btn-danger" (click)="delete(modp)">Remove</a></td>
             </tr>
           </tbody>
         </table>
+        <div *ngIf="test" class="bouton">
+          <button class="btn btn-primary" (click)="deleteAll()"><i class="fas fa-trash">Deletes</i></button>
+          <button class="btn btn-secondary fas fa-times" (click)="cloneAll()"><i class="fas fa-times">Clones</i></button>
+        </div>
         <button type="button" class="btn btn-primary" (click)="newModifprix()" >new modifprix</button>
     </div>
 </body>

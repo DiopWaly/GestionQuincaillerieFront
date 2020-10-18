@@ -10,23 +10,29 @@
         <table class="table table-hover"> 
           <thead>
             <tr>
+              <th>Cocher</th>
               <th>Id</th>
               <th>Type Operation</th>
-              <th>Clone</th>
-              <th>Edit</th>
-              <th>Delete</th>
+              <th *ngIf="!test">Cloner</th>
+              <th *ngIf="!test">Update</th>
+              <th *ngIf="!test">Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let tp of typeOp">
+              <td><input type="checkbox" value="{{tp.id}}" (change)="recuper(tp.id)"/></td>
               <td>{{tp.id}}</td>
               <td>{{tp.typeoperation}}</td>
-              <td><a class="btn btn-primary" (click)="cloner(tp)">Clone</a></td>
-                <td><a class="btn btn-secondary" (click)="update(tp)">Edit</a></td>
-                <td><a class="btn btn-danger" (click)="delete(tp)">Remove</a></td>
+              <td *ngIf="!test"><a class="btn btn-primary" (click)="cloner(tp)">Clone</a></td>
+              <td *ngIf="!test"><a class="btn btn-secondary" (click)="update(tp)">Edit</a></td>
+              <td *ngIf="!test"><a class="btn btn-danger" (click)="delete(tp)">Remove</a></td>
             </tr>
           </tbody>
         </table>
+        <div *ngIf="test" class="bouton">
+          <button class="btn btn-primary" (click)="deleteAll()"><i class="fas fa-trash">Deletes</i></button>
+          <button class="btn btn-secondary fas fa-times" (click)="cloneAll()"><i class="fas fa-times">Clones</i></button>
+        </div>
         <button type="button" class="btn btn-primary" (click)="newtypeoperation()" >new typeoperation</button>
     </div>
 </body>

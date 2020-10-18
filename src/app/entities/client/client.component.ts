@@ -20,7 +20,7 @@ export class ClientComponent implements OnInit {
   validation_messages = {
     'typeclient': [
       { type: 'required', message: 'champ est obligatoire.' },
-      { type: 'pattern', message: 'Entrer un prenom valide svp' }
+      { type: 'pattern', message: 'Entrer un prenom valide svp'}
     ],
     'prenom': [
       { type: 'required', message: 'champ est obligatoire.' },
@@ -108,7 +108,7 @@ export class ClientComponent implements OnInit {
         Validators.required
       ])),
       'photo': new FormControl('', Validators.compose([
-        Validators.required,
+        // Validators.required,
         // Validators.pattern('^[a-zA-Z0-9_.+-]+$')
       ]))
     });

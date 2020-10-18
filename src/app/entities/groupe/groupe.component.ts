@@ -27,11 +27,11 @@ export class GroupeComponent implements OnInit {
   constructor(private crud : CrudService,private router : Router) { 
     this.form = new FormGroup({
       codegroupe: new FormControl('', Validators.compose([
-        Validators.required,
+        // Validators.required,
         Validators.pattern('^[a-zA-Z0-9_. +-]+$')
       ])),
       libellegroupe: new FormControl('', Validators.compose([
-        Validators.required,
+        // Validators.required,
         Validators.pattern('^[a-zA-Z0-9_. +-]+$')
       ]))
     });

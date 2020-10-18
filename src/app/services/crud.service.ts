@@ -1,4 +1,5 @@
-import { HttpClient, HttpEvent, HttpErrorResponse, HttpEventType } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpEvent, HttpEventType } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -19,6 +20,10 @@ export class CrudService {
     return this.httpclient.delete(this.url+""+route);
   }
   
+  deletes(route:String, ids: any){
+    return this.httpclient.patch(this.url+""+route,ids);
+  }
+  
   update(route:String, marque : any){
     return this.httpclient.put(this.url+""+route,marque);
   }
@@ -28,7 +33,7 @@ export class CrudService {
   cloner(route:String, marque : any){
     return this.httpclient.post(this.url+""+route,marque);
   }
-
+  
   public getQuincaillerieServ(){
     return this.quincaillerieServ;
   }

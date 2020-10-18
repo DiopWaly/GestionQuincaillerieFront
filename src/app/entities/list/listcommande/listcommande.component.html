@@ -24,45 +24,52 @@
           <table id="example1" class="table table-bordered table-striped">
             <thead>
             <tr>
+                <th>Cocher</th>
                 <th>Id</th>
                 <th>Date de commande</th>
                 <th>Designation</th>
                 <th>Montant</th>
                 <th>Numéro de facture</th>
                 <th>Description</th>
-                <th>Cloner</th>
-                <th>Modification</th>
-                <th>Suppression</th>
+                <th *ngIf="!test">Cloner</th>
+                <th *ngIf="!test">Update</th>
+                <th *ngIf="!test">Delete</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let com of commandes">
+                <td><input type="checkbox" value="{{com.id}}" (change)="recuper(com.id)"/></td>
                 <td>{{com.id}}</td>
                 <td>{{com.datecommande.date|date: 'dd/MM/yyyy'}}</td>
                 <td>{{com.designation}}</td>
                 <td>{{com.montant}}</td>
                 <td>{{com.numfacture}}</td>
                 <td>{{com.description}}</td>
-                <td><a class="btn btn-primary " (click)="cloner(com)"><i class="fas fa-times"></i>Clone</a></td>
-                <td><a class="btn btn-secondary " (click)="update(com)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(com)"><i class="fas fa-trash"></i>Delete</a></td>
+                <td *ngIf="!test"><a class="btn btn-primary " (click)="cloner(com)"><i class="fas fa-times"></i>Clone</a></td>
+                <td *ngIf="!test"><a class="btn btn-secondary " (click)="update(com)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td *ngIf="!test"><a class="btn btn-danger btn-sm" (click)="delete(com)"><i class="fas fa-trash"></i>Delete</a></td>
                 
               </tr>
             </tbody>
             <tfoot>
               <tr>
+                <th>Cocher</th>
                 <th>Id</th>
                 <th>Date de commande</th>
                 <th>Designation</th>
                 <th>Montant</th>
                 <th>Numéro de facture</th>
                 <th>Description</th>
-                <th>Clone</th>
-                <th>Modification</th>
-                <th>Suppression</th>
+                <th *ngIf="!test">Cloner</th>
+                <th *ngIf="!test">Update</th>
+                <th *ngIf="!test">Delete</th>
               </tr>
             </tfoot>
           </table>
+        </div>
+        <div *ngIf="test" class="bouton">
+          <button class="btn btn-primary" (click)="deleteAll()"><i class="fas fa-trash">Deletes</i></button>
+          <button class="btn btn-secondary fas fa-times" (click)="cloneAll()"><i class="fas fa-times">Clones</i></button>
         </div>
       </div>
     </div>

@@ -25,41 +25,47 @@
             <thead>
             <tr>
               <tr>
+                <th>Cochers</th>
                 <th>Id</th>
                 <th>Code catégorie</th>
                 <th>Libelle</th>
                 <!-- <th>Catégorie</th> -->
                 <th>Description</th>
-                <th>cloner</th>
-                <th>Modification</th>
-                <th>Suppression</th>
+                <th *ngIf="!test">Cloner</th>
+                <th *ngIf="!test">Update</th>
+                <th *ngIf="!test">Delete</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let cat of categories">
+                <td><input type="checkbox" value="{{cat.id}}" (change)="recuper(cat.id)"/></td>
                 <td>{{cat.id}}</td>
                 <td>{{cat.codecategorie}}</td>
                 <td>{{cat.libelle}}</td>
                 <td>{{cat.description}}</td>
-                <td><a class="btn btn-primary " (click)="cloner(cat)"><i class="fas fa-times"></i>Clone</a></td>
-                <td><a class="btn btn-secondary " (click)="update(cat)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
-                <td><a class="btn btn-danger btn-sm" (click)="delete(cat)"><i class="fas fa-trash"></i>Delete</a></td>
-                
+                <td *ngIf="!test"><a class="btn btn-primary " (click)="cloner(cat)"><i class="fas fa-times"></i>Clone</a></td>
+                <td *ngIf="!test"><a class="btn btn-secondary " (click)="update(cat)"><i class="fas fa-pencil-alt"></i>Edit</a></td>
+                <td *ngIf="!test"><a class="btn btn-danger btn-sm" (click)="delete(cat)"><i class="fas fa-trash"></i>Delete</a></td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
+                <th>Cochers</th>
                 <th>Id</th>
                 <th>Code catégorie</th>
                 <th>Libelle</th>
                 <!-- <th>Catégorie</th> -->
                 <th>Description</th>
-                <th>Clone</th>
-                <th>Modification</th>
-                <th>Suppression</th>
+                <th *ngIf="!test">Cloner</th>
+                <th *ngIf="!test">Update</th>
+                <th *ngIf="!test">Delete</th>
               </tr>
             </tfoot>
           </table>
+        </div>
+        <div *ngIf="test" class="bouton">
+          <button class="btn btn-primary" (click)="deleteAll()"><i class="fas fa-trash">Deletes</i></button>
+          <button class="btn btn-secondary fas fa-times" (click)="cloneAll()"><i class="fas fa-times">Clones</i></button>
         </div>
       </div>
     </div>

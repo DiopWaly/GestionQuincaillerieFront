@@ -40,13 +40,13 @@
         </select>
         <div class="error-container">
           <ng-container *ngFor="let validation of validation_messages.lignecommande">
-            <div class="error-message" *ngIf="form.get('lignecommande').hasError(validation.type) && (form.get('montant').dirty || form.get('lignecommande').touched)">
+            <div class="error-message" *ngIf="form.get('lignecommande').hasError(validation.type) && (form.get('lignecommande').dirty || form.get('lignecommande').touched)">
               <span>{{ validation.message }}</span>
             </div>
           </ng-container>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary" [disabled]="!form.invalid">Valider</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Valider</button>
     </form>
       </div>
     </div>

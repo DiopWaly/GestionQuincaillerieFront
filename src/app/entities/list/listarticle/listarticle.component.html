@@ -7,6 +7,7 @@
           <table class="table table-hover">
             <thead>
               <tr>
+                <th>cochers</th>
                 <th>Id</th>
                 <th>libelle</th>
                 <th>Prixencours</th>
@@ -14,13 +15,16 @@
                 <th>Codearticle</th>
                 <th>Quincallerie</th>
                 <th>categories</th>
-                <th>Cloner</th>
-                <th>Update</th>
-                <th>Delete</th>
+                <div *ngIf="!test">
+                  <th>Cloner</th>
+                  <th>Update</th>
+                  <th>Delete</th>
+                </div>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let art of articles">
+                <td><input type="checkbox" value="{{art.id}}" (change)="recuper(art.id)"/></td>
                 <td>{{art.id}}</td>
                 <td>{{art.libelle}}</td>
                 <td>{{art.prixencours}}</td>
@@ -28,12 +32,18 @@
                 <td>{{art.codearticle}}</td>
                 <td>{{art.quincaillerie.Libellequic}}</td>
                 <td>{{art.categorie.libelle}}</td>
-                <td><a class="btn btn-primary" (click)="clone(art)">Cloner</a></td>
-                <td><a class="btn btn-secondary" (click)="update(art)">Edit</a></td>
-                <td><a class="btn btn-danger" (click)="delete(art)">Remove</a></td>
+                <div *ngIf="!test">
+                  <td><a class="btn btn-primary" (click)="clone(art)">Cloner</a></td>
+                  <td><a class="btn btn-secondary" (click)="update(art)">Edit</a></td>
+                  <td><a class="btn btn-danger" (click)="delete(art)">Remove</a></td>
+                </div>
               </tr>
             </tbody>
           </table>
+          <div *ngIf="test" class="bouton">
+            <button class="btn btn-primary" (click)="deleteAll()">Deletes</button>
+            <button class="btn btn-secondary" (click)="cloneAll()">Clones</button>
+          </div>
       </div>
     </div>
   </div>

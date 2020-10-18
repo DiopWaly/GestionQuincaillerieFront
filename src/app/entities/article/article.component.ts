@@ -22,7 +22,7 @@ export class ArticleComponent implements OnInit {
     ],
     'prixencours': [
       { type: 'required', message: 'champ est obligatoire.' },
-      { type: 'pattern', message: 'chiffre svp' }
+      { type: 'pattern', message: 'nombre positif' }
     ],
     'unite': [
       { type: 'required', message: 'champ est obligatoire.' },
@@ -33,7 +33,7 @@ export class ArticleComponent implements OnInit {
       { type: 'pattern', message: 'saisie invalide' },
     ],
     'description': [
-      { type: 'required', message: 'champ est obligatoire.' },
+      { type: 'required', message: 'champ est obligatoire.'},
       { type: 'pattern', message: 'saisi invalide' }
     ],
     'categorie': [

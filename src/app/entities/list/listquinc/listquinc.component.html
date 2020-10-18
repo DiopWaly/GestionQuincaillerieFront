@@ -6,6 +6,7 @@
         <table class="table table-hover">
           <thead>
             <tr>
+              <th>Cocher</th>
               <th>Id</th>
               <th>libelle</th>
               <th>Code</th>
@@ -16,15 +17,14 @@
               <th>Region</th>
               <th>Latitude</th>
               <th>Longitude</th>
-              <th>Clone</th>
-              <th>Modification</th>
-              <th>Suppression</th>
-
-
+              <th *ngIf="!test">Cloner</th>
+              <th *ngIf="!test">Update</th>
+              <th *ngIf="!test">Delete</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let quinc of quincailleries">
+              <td><input type="checkbox" value="{{quinc.id}}" (change)="recuper(quinc.id)"/></td>
               <td>{{quinc.id}}</td>
               <td>{{quinc.libellequic}}</td>
               <td>{{quinc.codequinc}}</td>
@@ -35,12 +35,16 @@
               <td>{{quinc.region}}</td>
               <td>{{quinc.lat}}</td>
               <td>{{quinc.long}}</td>
-              <td><a class="btn btn-primary" (click)="cloner(quinc)">Clone</a></td>
-              <td><a class="btn btn-secondary" (click)="update(quinc)">Edit</a></td>
-              <td><a class="btn btn-danger" (click)="delete(quinc)">Remove</a></td>
+              <td *ngIf="!test"><a class="btn btn-primary" (click)="cloner(quinc)">Clone</a></td>
+              <td *ngIf="!test"><a class="btn btn-secondary" (click)="update(quinc)">Edit</a></td>
+              <td *ngIf="!test"><a class="btn btn-danger" (click)="delete(quinc)">Remove</a></td>
             </tr>
           </tbody>
         </table>
+    </div>
+    <div *ngIf="test" class="bouton">
+      <button class="btn btn-primary" (click)="deleteAll()"><i class="fas fa-trash">Deletes</i></button>
+      <button class="btn btn-secondary fas fa-times" (click)="cloneAll()"><i class="fas fa-times">Clones</i></button>
     </div>
   </div>
 </div>
